@@ -21,5 +21,5 @@ db
     
 //routes
 app.get("/",(req,res) =>{
-    res.send("Está funcionando 2")
+    res.send("Está funcionando")
 })
