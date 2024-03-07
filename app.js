@@ -1,7 +1,7 @@
 const express = require('express')
-const exphbs = require('express-handlebars') //objeto do handlebars
+const exphbs = require('express-handlebars')
 const app = express()
-const path = require('path') //preciso dele para dizer ao handlebars o diretório onde estarão as views
+const path = require('path')
 const db = require('./db/connection')
 const bodyParser = require('body-parser')
 
@@ -15,8 +15,8 @@ app.listen(PORT, function(){
 app.use(bodyParser.urlencoded({extended: false}))
 
 //handle bars
-app.set('views', path.join(__dirname,'views')) 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+app.set('views', path.join(__dirname, 'views')) 
+app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}))
 app.set('veiw engine', 'handlebars')
 
 //static folder
@@ -34,7 +34,7 @@ db
     
 //route home
 app.get('/',(req,res) =>{
-    res.send("Está funcionando")
+    res.render('index.handlebars')
 })
 
 //jobs routes
