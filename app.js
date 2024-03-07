@@ -5,7 +5,7 @@ const path = require('path')
 const db = require('./db/connection')
 const bodyParser = require('body-parser')
 const Job = require('./models/Job')
-const Sequelize = require('requelize')
+const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
 const PORT = 3000
@@ -61,8 +61,6 @@ app.get('/',(req,res) =>{
         .catch(err => console.log(err))
     }
 
-    
-    
 })
 
 //jobs routes
