@@ -19,6 +19,9 @@ app.set('views', path.join(__dirname,'views'))
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('veiw engine', 'handlebars')
 
+//static folder
+app.use(express.static(path.join(__dirname, 'public')))
+
 //db connnection
 db
     .authenticate()
