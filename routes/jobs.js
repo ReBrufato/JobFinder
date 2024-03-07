@@ -2,6 +2,10 @@ const express = require('express')
 const router = express.Router()
 const Job = require('../models/Job') 
 
+router.get('/add', (req,res) => {
+    res.render('layouts/add.handlebars')
+})
+
 //insert
 router.post('/add', (req,res) => {
     let {title, salary, company, description, email, new_job} = req.body  
