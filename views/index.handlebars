@@ -18,14 +18,21 @@
         <div id="jobs-container" class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <!--se tiver algo no serach ele exibe a mensagem abaixo, isso foi feito porque ao renderizar 
+                    essa view, é legal saber se o usuário chegou nela a partir do campo de busca ou não, para poder
+                    personalizar a mensagem que aparece na tela, como foi feito abaixo-->
+                    {{#if search}} 
+                    <h2 id="job-list-title">Buscando vagas que contém: {{search}}</h2>
+                    {{#else}}
                     <h2 id="job-list-title">Veja as nossas vagas em destaque</h2>
+                    {{/if}}
                     <ul id="job-list" class="list-group">
                         {{#each jobs}}
                         <li class="list-group-item {{#if dataValues.new_job}}new-job{{/if}}">
                             <img src="/img/company.svg" alt="Company">
                             <p>{{dataValues.company}}</p>
                             <h2>{{dataValues.title}}</h2>
-                            <p>{{dataValues.salary}}</p>
+                            <p>R${{dataValues.salary}}</p>
                             <span class="new-job-label">Nova</span>
                             <a class="btn btn-primary">Ver vaga</a>
                         </li>
